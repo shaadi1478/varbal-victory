@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { Menu, X, GraduationCap, Sparkles, ShieldCheck } from "lucide-react";
 import { onAuthStateChanged, type User } from "firebase/auth";
 import { auth } from "../lib/firebase";
+import logo from "../assets/images.png"
 
 // আপনার নির্দিষ্ট অ্যাডমিন ইমেইল
 const ADMIN_EMAIL = "admin@verbalvictory.com";
@@ -59,8 +60,8 @@ export default function Navbar() {
           onClick={() => setMenuOpen(false)}
           className="group flex items-center gap-3 transition-transform duration-300 hover:opacity-95"
         >
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#12372A] text-white shadow-md shadow-emerald-950/20 transition-transform duration-500 group-hover:scale-105">
-            <GraduationCap size={22} className="text-emerald-300" />
+          <div className="flex h-14 w-14 items-center justify-center rounded text-white shadow-emerald-950/20 transition-transform duration-500 group-hover:scale-105">
+            <img src={logo} alt="" />
           </div>
 
           <div className="flex flex-col">
