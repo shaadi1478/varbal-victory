@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import DeveloperSection from "../components/DeveloperSection";
+import { useState } from "react";
 
 const courses = [
   {
@@ -87,158 +88,193 @@ const features = [
 ];
 
 export default function HomePage() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
   return (
     <div className="min-h-screen overflow-x-clip bg-[#F4F7F2] font-sans text-[#12372A] selection:bg-[#12372A] selection:text-white">
       {/* Background Grid Pattern & Ambient Light */}
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]" />
       
-      {/* Hero Section */}
-      <section
-        id="home"
-        className="relative mx-auto grid w-full max-w-7xl items-center gap-12 px-6 py-20 sm:px-8 sm:py-24 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:py-28"
+{/* Hero Section */}
+<section
+  id="home"
+  className="relative mx-auto grid w-full max-w-7xl items-center gap-10 px-4 py-12 sm:px-8 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:py-28"
+>
+  {/* ভিডিও পপ-আপ মোডাল স্টেট ব্যবহারের জন্য টপ-লেভেল ফাইলে অবশ্যই `const [isVideoOpen, setIsVideoOpen] = useState(false);` এড করে নিবেন */}
+
+  <div className="flex flex-col items-start">
+    <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-300 bg-white px-3.5 py-2 text-[11px] font-bold tracking-wider text-[#12372A] shadow-sm sm:px-4 sm:text-xs">
+      <span className="flex h-2 w-2 rounded-full bg-[#2E7D32] animate-pulse" />
+      VERIFIED ENGLISH LEARNING PLATFORM
+    </div>
+
+    <h1 className="max-w-2xl text-3xl font-black leading-[1.15] tracking-tight text-[#12372A] sm:text-5xl lg:text-6xl xl:text-7xl">
+      Your Voice. <br className="hidden sm:inline" />
+      Your Future. <br />
+      <span className="bg-gradient-to-r from-[#12372A] via-[#2E7D32] to-[#43A047] bg-clip-text text-transparent">
+        Unlimited.
+      </span>
+    </h1>
+
+    <p className="mt-4 max-w-xl text-sm leading-relaxed text-slate-600 sm:mt-6 sm:text-base lg:text-lg">
+      Achieve absolute clarity and target band scores with an institutional-grade curriculum built for ambitious learners and professionals.
+    </p>
+
+    <div className="mt-8 flex w-full flex-col gap-3.5 sm:w-auto sm:flex-row">
+      <Link
+        to="/courses"
+        className="group inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-2xl bg-[#12372A] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-emerald-950/20 transition-all duration-300 hover:bg-[#1b4d3e] active:scale-[0.98]"
       >
-        <div className="flex flex-col items-start">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-300 bg-white px-4 py-2 text-xs font-bold tracking-wider text-[#12372A] shadow-sm">
-            <span className="flex h-2 w-2 rounded-full bg-[#2E7D32] animate-pulse" />
-            VERIFIED ENGLISH LEARNING PLATFORM
-          </div>
+        Explore Certified Courses
+        <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+      </Link>
 
-          <h1 className="max-w-2xl text-4xl font-black leading-[1.1] tracking-tight text-[#12372A] sm:text-6xl lg:text-7xl">
-            Your Voice. <br />
-            Your Future. <br />
-            <span className="bg-gradient-to-r from-[#12372A] via-[#2E7D32] to-[#43A047] bg-clip-text text-transparent">
-              Unlimited.
-            </span>
-          </h1>
+      <button
+        onClick={() => setIsVideoOpen(true)}
+        className="inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-2xl border border-emerald-300 bg-white px-7 py-3.5 text-sm font-bold text-[#12372A] shadow-sm transition-all duration-300 hover:bg-emerald-50 active:scale-[0.98] cursor-pointer"
+      >
+        <PlayCircle size={18} className="text-[#2E7D32]" />
+        Watch Free Sample
+      </button>
+    </div>
 
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
-            Achieve absolute clarity and target band scores with an institutional-grade curriculum built for ambitious learners and professionals.
-          </p>
-
-          <div className="mt-8 flex w-full flex-col gap-3.5 sm:w-auto sm:flex-row">
-            <Link
-              to="/courses"
-              className="group inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-2xl bg-[#12372A] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-emerald-950/20 transition-all duration-300 hover:bg-[#1b4d3e] active:scale-[0.98]"
-            >
-              Explore Certified Courses
-              <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
-
-            <Link
-              to="/register"
-              className="inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-2xl border border-emerald-300 bg-white px-7 py-3.5 text-sm font-bold text-[#12372A] shadow-sm transition-all duration-300 hover:bg-emerald-50 active:scale-[0.98]"
-            >
-              <PlayCircle size={18} className="text-[#2E7D32]" />
-              Watch Free Sample
-            </Link>
-          </div>
-
-          <div className="mt-10 flex flex-wrap items-center gap-5 border-t border-emerald-900/10 pt-6">
-            <div className="flex -space-x-3">
-              {["S", "A", "R", "M"].map((letter, index) => (
-                <div
-                  key={letter}
-                  className={`flex h-10 w-10 items-center justify-center rounded-full border-2 border-white text-xs font-bold ${
-                    index % 2 === 0
-                      ? "bg-[#12372A] text-white"
-                      : "bg-[#2E7D32] text-white"
-                  }`}
-                >
-                  {letter}
-                </div>
-              ))}
-            </div>
-
-            <div>
-              <div className="flex items-center gap-1 text-amber-500">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <Star key={index} size={15} fill="currentColor" />
-                ))}
-              </div>
-              <p className="mt-1 text-xs text-slate-600">
-                Trusted by <span className="font-bold text-[#12372A]">2,500+</span> successful graduates
-              </p>
-            </div>
-          </div>
-        </div>
-
-  {/* 🟢 Right Side: Interactive Course Preview Card */}
-<div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-  {/* Background Ambient Glows */}
-  <div className="absolute -top-12 -right-12 h-64 w-64 rounded-full bg-emerald-400/20 blur-3xl pointer-events-none" />
-  <div className="absolute -bottom-12 -left-12 h-64 w-64 rounded-full bg-[#2E7D32]/15 blur-3xl pointer-events-none" />
-
-  {/* Main Card Container */}
-  <div className="relative rounded-[2.5rem] border border-emerald-900/10 bg-white/85 p-4 shadow-2xl shadow-emerald-950/10 backdrop-blur-2xl sm:p-6">
-    <div className="rounded-[2rem] border border-emerald-100 bg-gradient-to-b from-[#FAFDF8] to-[#F4F7F2] p-5 shadow-sm sm:p-7">
-      
-      {/* Featured Banner Header */}
-      <div className="relative h-48 w-full overflow-hidden rounded-2xl bg-[#12372A] shadow-md">
-        <img
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
-          alt="IELTS Live Program"
-          className="h-full w-full object-cover opacity-80"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#061410] via-transparent to-transparent" />
-        
-        <span className="absolute top-3 left-3 rounded-full bg-[#12372A]/80 backdrop-blur-md px-3 py-1 text-[10px] font-black uppercase text-emerald-300 border border-emerald-500/30">
-          🔥 Most Enrolled Batch
-        </span>
-
-        <div className="absolute bottom-3 left-4 right-4 text-white">
-          <h3 className="text-lg font-black tracking-wide">IELTS Complete Band 7.5+</h3>
-          <p className="text-[11px] text-emerald-200">Live Mentoring + 1:1 Speaking Evaluation</p>
-        </div>
-      </div>
-
-      {/* Program Highlights */}
-      <div className="my-5 grid grid-cols-2 gap-3">
-        <div className="rounded-xl border border-emerald-200/80 bg-white p-3 shadow-sm text-center">
-          <p className="text-[10px] font-bold text-slate-400 uppercase">Live Classes</p>
-          <p className="text-base font-black text-[#12372A]">48 Sessions</p>
-        </div>
-        <div className="rounded-xl border border-emerald-200/80 bg-white p-3 shadow-sm text-center">
-          <p className="text-[10px] font-bold text-slate-400 uppercase">Mock Tests</p>
-          <p className="text-base font-black text-[#2E7D32]">12 Full Length</p>
-        </div>
-      </div>
-
-      {/* Course Included Features List */}
-      <div className="space-y-2.5 mb-6">
-        {[
-          "Personalized Speaking Correction & Feedback",
-          "Band 8+ Writing Task 1 & 2 Evaluation",
-          "1000+ Cambridge Keyword Hacks & Shortcuts",
-        ].map((feature, idx) => (
-          <div key={idx} className="flex items-center gap-2.5 text-xs font-bold text-[#12372A]">
-            <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-[#2E7D32]">
-              <CheckCircle2 size={13} />
-            </div>
-            <span>{feature}</span>
+    <div className="mt-10 flex flex-wrap items-center gap-4 sm:gap-5 border-t border-emerald-900/10 pt-6">
+      <div className="flex -space-x-3">
+        {["S", "A", "R", "M"].map((letter, index) => (
+          <div
+            key={letter}
+            className={`flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border-2 border-white text-xs font-bold ${
+              index % 2 === 0
+                ? "bg-[#12372A] text-white"
+                : "bg-[#2E7D32] text-white"
+            }`}
+          >
+            {letter}
           </div>
         ))}
       </div>
 
-      {/* Action Button */}
-      <Link
-        to="/courses"
-        className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#12372A] py-3.5 text-xs font-black text-white hover:bg-[#2E7D32] shadow-md transition cursor-pointer"
-      >
-        <span>Enroll in Next Batch</span>
-        <ArrowRight size={16} />
-      </Link>
-    </div>
-
-    {/* Floating Live Seats Left Badge */}
-    <div className="absolute -right-3 -top-5 hidden sm:flex items-center gap-2.5 rounded-2xl border border-emerald-200/80 bg-white/95 p-3 shadow-xl backdrop-blur-xl">
-      <span className="flex h-3 w-3 rounded-full bg-red-500 animate-ping" />
-      <p className="text-[11px] font-extrabold text-[#12372A]">
-        Only 5 Seats Remaining for November Batch!
-      </p>
+      <div>
+        <div className="flex items-center gap-1 text-amber-500">
+          {Array.from({ length: 5 }).map((_, index) => (
+            <Star key={index} size={15} fill="currentColor" />
+          ))}
+        </div>
+        <p className="mt-1 text-xs text-slate-600">
+          Trusted by <span className="font-bold text-[#12372A]">2,500+</span> successful graduates
+        </p>
+      </div>
     </div>
   </div>
-</div>
-      </section>
+
+  {/* 🟢 Right Side: Interactive Course Preview Card */}
+  <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
+    {/* Background Ambient Glows */}
+    <div className="absolute -top-12 -right-12 h-48 w-48 sm:h-64 sm:w-64 rounded-full bg-emerald-400/20 blur-3xl pointer-events-none" />
+    <div className="absolute -bottom-12 -left-12 h-48 w-48 sm:h-64 sm:w-64 rounded-full bg-[#2E7D32]/15 blur-3xl pointer-events-none" />
+
+    {/* Main Card Container */}
+    <div className="relative rounded-[2rem] sm:rounded-[2.5rem] border border-emerald-900/10 bg-white/85 p-3 sm:p-6 shadow-2xl shadow-emerald-950/10 backdrop-blur-2xl">
+      <div className="rounded-[1.5rem] sm:rounded-[2rem] border border-emerald-100 bg-gradient-to-b from-[#FAFDF8] to-[#F4F7F2] p-4 sm:p-7 shadow-sm">
+        
+        {/* Featured Banner Header */}
+        <div className="relative h-40 sm:h-48 w-full overflow-hidden rounded-2xl bg-[#12372A] shadow-md">
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
+            alt="IELTS Live Program"
+            className="h-full w-full object-cover opacity-80"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#061410] via-transparent to-transparent" />
+          
+          <span className="absolute top-3 left-3 rounded-full bg-[#12372A]/80 backdrop-blur-md px-2.5 py-1 text-[9px] sm:text-[10px] font-black uppercase text-emerald-300 border border-emerald-500/30">
+            🔥 Most Enrolled Batch
+          </span>
+
+          <div className="absolute bottom-3 left-3 right-3 sm:left-4 sm:right-4 text-white">
+            <h3 className="text-base sm:text-lg font-black tracking-wide">IELTS Complete Band 7.5+</h3>
+            <p className="text-[10px] sm:text-[11px] text-emerald-200">Live Mentoring + 1:1 Speaking Evaluation</p>
+          </div>
+        </div>
+
+        {/* Program Highlights */}
+        <div className="my-4 sm:my-5 grid grid-cols-2 gap-2.5 sm:gap-3">
+          <div className="rounded-xl border border-emerald-200/80 bg-white p-2.5 sm:p-3 shadow-sm text-center">
+            <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase">Live Classes</p>
+            <p className="text-sm sm:text-base font-black text-[#12372A]">48 Sessions</p>
+          </div>
+          <div className="rounded-xl border border-emerald-200/80 bg-white p-2.5 sm:p-3 shadow-sm text-center">
+            <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase">Mock Tests</p>
+            <p className="text-sm sm:text-base font-black text-[#2E7D32]">12 Full Length</p>
+          </div>
+        </div>
+
+        {/* Course Included Features List */}
+        <div className="space-y-2.5 mb-5 sm:mb-6">
+          {[
+            "Personalized Speaking Correction & Feedback",
+            "Band 8+ Writing Task 1 & 2 Evaluation",
+            "1000+ Cambridge Keyword Hacks & Shortcuts",
+          ].map((feature, idx) => (
+            <div key={idx} className="flex items-center gap-2.5 text-xs font-bold text-[#12372A]">
+              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-[#2E7D32]">
+                <CheckCircle2 size={13} />
+              </div>
+              <span className="text-[11px] sm:text-xs">{feature}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Action Button */}
+        <Link
+          to="/courses"
+          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#12372A] py-3.5 text-xs font-black text-white hover:bg-[#2E7D32] shadow-md transition cursor-pointer"
+        >
+          <span>Enroll in Next Batch</span>
+          <ArrowRight size={16} />
+        </Link>
+      </div>
+
+      {/* Floating Live Seats Left Badge (Circle Changed to Green) */}
+      <div className="absolute -right-2 -top-4 hidden md:flex items-center gap-2 rounded-2xl border border-emerald-200/80 bg-white/95 px-3.5 py-2.5 shadow-xl backdrop-blur-xl">
+        <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-ping" />
+        <p className="text-[11px] font-extrabold text-[#12372A]">
+          Only 5 Seats Remaining for November Batch!
+        </p>
+      </div>
+    </div>
+  </div>
+
+{/* 🎬 Video Pop-up Modal UI */}
+  {isVideoOpen && (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-3 sm:p-4">
+      <div className="relative w-full max-w-4xl rounded-2xl bg-black overflow-hidden shadow-2xl animate-in fade-in zoom-in-95 duration-200">
+        
+        {/* Modal Close Button */}
+        <button
+          onClick={() => setIsVideoOpen(false)}
+          className="absolute right-3 top-3 z-10 rounded-full bg-white/20 p-2 text-white hover:bg-white/40 transition-colors cursor-pointer"
+          aria-label="Close modal"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+
+        {/* Responsive Video Frame with Autoplay */}
+        <div className="relative aspect-video w-full">
+          <iframe
+            className="absolute top-0 left-0 h-full w-full"
+            src="https://www.youtube.com/embed/k4715CJ0Ii8?list=PLWWR_9t3vo3OtrmF3BV0CUDTBs83i4iAo&autoplay=1"
+            title="IELTS Speaking Test- Perfect Band 9 [+ Free Speaking PDF]"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        </div>
+
+      </div>
+    </div>
+  )}
+</section>
 
       {/* Benefits Grid */}
       <section className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
