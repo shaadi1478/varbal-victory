@@ -39,7 +39,7 @@ export default function App() {
       </Routes>
 
       {/* 🟢 গ্লোবাল ফ্লোটিং হোয়াটসঅ্যাপ বাটন (সব পেজে শো করবে) */}
-      <WhatsAppButton phoneNumber="8801700000000" message="Hi, I want to know more about Verbal Victory courses." />
+      <WhatsAppButton phoneNumber="8801754866736" message="Hi, I want to know more about Verbal Victory courses." />
     </BrowserRouter>
   );
 }

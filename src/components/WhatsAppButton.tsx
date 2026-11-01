@@ -1,12 +1,13 @@
+import React from "react";
 import { MessageCircle } from "lucide-react";
 
 interface WhatsAppButtonProps {
-  phoneNumber?: string; // আপনার হোয়াটসঅ্যাপ নম্বর (কান্ট্রি কোড সহ, যেমন: 8801700000000)
-  message?: string;    // ডিফল্ট মেসেজ যা ইউজার ক্লিক করার সাথে দেখতে পাবে
+  phoneNumber?: string; // কান্ট্রি কোড সহ (যেমন: 8801754866736)
+  message?: string;     // ডিফল্ট মেসেজ
 }
 
 export default function WhatsAppButton({
-  phoneNumber = "8801700000000", // আপনার আসল হোয়াটসঅ্যাপ নম্বরটি এখানে বসিয়ে দিন
+  phoneNumber = "8801754866736", 
   message = "Hello! I need help with Verbal Victory courses.",
 }: WhatsAppButtonProps) {
   const encodedMessage = encodeURIComponent(message);
@@ -27,7 +28,6 @@ export default function WhatsAppButton({
         aria-label="Contact support on WhatsApp"
         className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl hover:bg-[#20ba5a] hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer relative"
       >
-        {/* Pulsing ring background effect */}
         <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-35 -z-10"></span>
         <MessageCircle size={28} className="fill-white text-[#25D366]" />
       </a>

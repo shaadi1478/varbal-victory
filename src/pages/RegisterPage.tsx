@@ -3,7 +3,7 @@ import { Lock, ArrowLeft, MessageCircle } from "lucide-react";
 
 export default function RegisterPage() {
   const navigate = useNavigate();
-  const supportWhatsapp = "8801700000000"; // আপনার আসল হোয়াটসঅ্যাপ সাপোর্ট নম্বরটি এখানে দিন
+  const supportWhatsapp = "1754866736"; // আপনার আসল হোয়াটসঅ্যাপ সাপোর্ট নম্বরটি এখানে দিন
   const defaultMsg = encodeURIComponent("Hi, I want to create an account and enroll in Verbal Victory courses.");
 
   return (
