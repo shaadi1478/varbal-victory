@@ -60,12 +60,12 @@ export default function Navbar() {
           onClick={() => setMenuOpen(false)}
           className="group flex items-center gap-3 transition-transform duration-300 hover:opacity-95"
         >
-          <div className="flex h-14 w-14 items-center justify-center rounded text-white shadow-emerald-950/20 transition-transform duration-500 group-hover:scale-105">
+          <div className="flex md:h-14 md:w-14 h-11 w-11 items-center justify-center rounded text-white shadow-emerald-950/20 transition-transform duration-500 group-hover:scale-105">
             <img src={logo} alt="" />
           </div>
 
           <div className="flex flex-col">
-            <span className="text-base font-black tracking-wider text-[#12372A] font-serif sm:text-lg">
+            <span className="font-black tracking-wider text-[#12372A] font-serif sm:text-lg text-[14px]">
               VERBAL VICTORY
             </span>
             <span className="flex items-center gap-1 text-[9px] font-bold tracking-[0.2em] text-[#2E7D32]">
